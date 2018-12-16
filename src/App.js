@@ -40,6 +40,11 @@ class App extends React.Component {
 		this.setState({ todos: newTodos });
 	};
 
+	addTodo(text){
+		const newTodos = [...this.state.todos, { text }];
+		this.setState({ todos: newTodos });
+	};
+
 	render(){
 
 		//destructure to-dos from state
@@ -56,7 +61,7 @@ class App extends React.Component {
 		return (
 			<div className="todoWrapper">
 				{todoList}
-				<AddToDoForm />
+				<AddToDoForm  addTodo={this.addTodo}/>
 			</div>
 		);	
 	}
