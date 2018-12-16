@@ -1,36 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './index.css';
 
-export default class AddToDoForm extends React.Component{
-	constructor(props){
-		super(props)
-		this.state = { value: "" };	
-		this.updateValue = this.updateValue.bind(this)
-		this.handleSubmit = this.handleSubmit.bind(this)
-	}
+export default function AddToDoFormHooks(props){
 
-	updateValue(e){
+	//"" is a default value in the useState init
+	const [ val, setVal ] = useState("");
+
+	//destructure from props
+	const { addTodo } = props;
+
+	const updateValue = e => {
 		this.setState({ value: e.target.value });
 	}
 
-	handleSubmit(e){
+	const handleSubmit = e => {
 		e.preventDefault();
-		if (!this.state.value) return;
-		this.props.addTodo(this.state.value);
-		this.setState({ value: "" });
+		if (!value) return;
+		addTodo(this.state.value);
+		setVal("");
 	};
 
-	render() {
-		const { value } = this.state;
-
-		return (
-			<form onSubmit={this.handleSubmit}>
-				<input
-					type="text"
-					className="input"
-					value={value}
-					onChange={this.updateValue}/>
-			</form>
-		);
-	}
+	return (
+		<form onSubmit={handleSubmit}>
+			<input
+				type="text"
+				className="input"
+				value={value}
+				onChange={updateValue}/>
+		</form>
+	);
 }
