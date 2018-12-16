@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import AddToDoForm from './components/AddToDoForm'
 
 class App extends React.Component {
 
@@ -55,6 +56,7 @@ class App extends React.Component {
 		return (
 			<div className="todoWrapper">
 				{todoList}
+				<AddToDoForm />
 			</div>
 		);	
 	}
