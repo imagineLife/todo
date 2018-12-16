@@ -26,6 +26,7 @@ class App extends React.Component {
 
 		this.completeTodo = this.completeTodo.bind(this)
 		this.removeTodo = this.removeTodo.bind(this)
+		this.addTodo = this.addTodo.bind(this)
 	}
 
 	completeTodo(index){

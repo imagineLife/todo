@@ -5,6 +5,8 @@ export default class AddToDoForm extends React.Component{
 	constructor(props){
 		super(props)
 		this.state = { value: "" };	
+		this.updateValue = this.updateValue.bind(this)
+		this.handleSubmit = this.handleSubmit.bind(this)
 	}
 
 	updateValue(e){
