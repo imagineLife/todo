@@ -1,0 +1,19 @@
+HOOKS & REACT DETAILS
+- can review react details in terminal
+	npm info react
+		spits out a HUGE object in the console
+		notice the dist-tags, the 'distribution tags':
+			{ name: 'react',
+			  description: 'React is a JavaScript library for building user interfaces.',
+			  'dist-tags': 
+			   { latest: '16.6.3',
+			     next: '16.7.0-alpha.2',
+			     canary: '0.0.0-4a1072194',
+			     unstable: '0.0.0-0c756fb-f7f79fd' },
+		the next dist tag, here, uses the hooks release
+		Need to install the next versions of react & react dom
+
+- install 'next' versions of react & react dom
+	npm install react@next react-dom@next
+	OR
+	npm install react{,-dom}@next
