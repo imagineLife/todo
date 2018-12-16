@@ -53,7 +53,7 @@ class App extends React.Component {
 					index={ind}
 					txt={t.text}
 					completeToDo={this.completeTodo}
-					removeTodo={this.removeTodo}
+					removeToDo={this.removeTodo}
 				/>
 			)
 		})
