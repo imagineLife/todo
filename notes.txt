@@ -21,3 +21,58 @@ HOOKS & REACT DETAILS
 - check version of instaled react in terminal
 	npm ls react
 	return react@16.70-alpha.2 now :)
+
+
+The conversion process
+App.js
+- import useState
+- convert from class to function
+	class HooksApp extends React.Component
+	to
+	function App()
+- convert constructor to useState hook implementation
+	https://reactjs.org/docs/hooks-state.html
+
+	from
+		constructor(props){
+		super(props)
+
+		this.state = {
+		    todos: [
+		      {
+		        text: "Learn about React",
+		        isCompleted: false
+		      },
+		      {
+		        text: "Meet friend for lunch",
+		        isCompleted: false
+		      },
+		      {
+		        text: "Build really cool todo app",
+		        isCompleted: false
+		      }
+		    ]
+		};
+	to
+
+- remove this.bind.this implementation from previous contructor
+- covert class methods to const functions
+	ex
+	from
+		addTodo(text){
+			const newTodos = [...this.state.todos, { text }];
+			this.setState({ todos: newTodos });
+		};
+	to 
+		const addTodo = todoText => {
+			const newTodos = [...this.state.todos, { todoText }];
+			this.setState({ todos: newTodos });
+		};
+
+
+
+
+
+
+
+
