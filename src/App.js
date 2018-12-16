@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import SingleToDo from './components/SingleToDo'
+import AddToDoForm from './components/AddToDoForm'
 
 class App extends React.Component {
 
@@ -26,6 +27,7 @@ class App extends React.Component {
 
 		this.completeTodo = this.completeTodo.bind(this)
 		this.removeTodo = this.removeTodo.bind(this)
+		this.addTodo = this.addTodo.bind(this)
 	}
 
 	completeTodo(index){
@@ -37,6 +39,11 @@ class App extends React.Component {
 	removeTodo(index){
 		const newTodos = [...this.state.todos];
 		newTodos.splice(index, 1);
+		this.setState({ todos: newTodos });
+	};
+
+	addTodo(text){
+		const newTodos = [...this.state.todos, { text }];
 		this.setState({ todos: newTodos });
 	};
 
@@ -61,6 +68,7 @@ class App extends React.Component {
 		return (
 			<div className="todoWrapper">
 				{todoList}
+				<AddToDoForm  addTodo={this.addTodo}/>
 			</div>
 		);	
 	}
