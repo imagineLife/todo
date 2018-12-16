@@ -1,4 +1,10 @@
-import React from "react";
+/*
+	including notes on converting from class to function+hooks
+*/
+
+//0 using 'next' release of react for hooks
+//1. import useState from react
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import SingleToDo from './components/SingleToDo'
 import AddToDoForm from './components/AddToDoForm'

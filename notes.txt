@@ -17,3 +17,7 @@ HOOKS & REACT DETAILS
 	npm install react@next react-dom@next
 	OR
 	npm install react{,-dom}@next
+
+- check version of instaled react in terminal
+	npm ls react
+	return react@16.70-alpha.2 now :)
