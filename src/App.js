@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import SingleToDo from './components/SingleToDo'
 
 class App extends React.Component {
 
@@ -44,11 +45,16 @@ class App extends React.Component {
 		//destructure to-dos from state
 		const { todos } = this.state;
 			
-		let todoList = todos.map(t => {
+		let todoList = todos.map((t,ind) => {
 			return(
-				<div key={t.text}>
-					<p>{t.text}</p>
-				</div>
+				<SingleToDo
+					todo={t}
+					key={ind}
+					index={ind}
+					txt={t.text}
+					completeToDo={this.completeTodo}
+					removeTodo={this.removeTodo}
+				/>
 			)
 		})
 
