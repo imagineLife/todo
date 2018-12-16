@@ -4,7 +4,7 @@ import SingleToDo from './components/SingleToDo'
 import AddToDoForm from './components/AddToDoForm'
 import './main.css'
 
-class App extends React.Component {
+class DefaultApp extends React.Component {
 
 	constructor(props){
 		super(props)
@@ -77,5 +77,4 @@ class App extends React.Component {
 	}
 };
 
-export default App;
-ReactDOM.render(<App />, document.getElementById("app"));
+export default DefaultApp;
