@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import DefaultApp from "./DefaultApp";
+import HooksApp from "./HooksApp";
 import style from "./main.css";
 ReactDOM.render(<DefaultApp />, document.getElementById("app"));
