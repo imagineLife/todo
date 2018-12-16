@@ -25,9 +25,21 @@ class App extends React.Component {
 	}
 
 	render(){
+
+		//destructure to-dos from state
+		const { todos } = this.state;
+			
+		let todoList = todos.map(t => {
+			return(
+				<div key={t.text}>
+					<p>{t.text}</p>
+				</div>
+			)
+		})
+
 		return (
-			<div>
-				<p>Dummy React Component here!</p>
+			<div className="todoWrapper">
+				{todoList}
 			</div>
 		);	
 	}
