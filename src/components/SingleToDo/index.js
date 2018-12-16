@@ -8,6 +8,8 @@ export default function SingleToDo(props) {
 			className="todo"
 			style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}>
 			{txt}
+			<button onClick={() => completeTodo(index)}>Complete</button>
+			<button onClick={() => removeTodo(index)}>x</button>
 		</div>
 	);
 }
