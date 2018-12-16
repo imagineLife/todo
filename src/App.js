@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import SingleToDo from './components/SingleToDo'
 import AddToDoForm from './components/AddToDoForm'
+import './main.css'
 
 class App extends React.Component {
 
@@ -67,8 +68,10 @@ class App extends React.Component {
 
 		return (
 			<div className="todoWrapper">
-				{todoList}
-				<AddToDoForm  addTodo={this.addTodo}/>
+				<div className="todo-list">
+					{todoList}
+					<AddToDoForm  addTodo={this.addTodo}/>
+				</div>	
 			</div>
 		);	
 	}
