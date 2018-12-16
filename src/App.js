@@ -22,7 +22,22 @@ class App extends React.Component {
 		      }
 		    ]
 		};
+
+		this.completeTodo = this.completeTodo.bind(this)
+		this.removeTodo = this.removeTodo.bind(this)
 	}
+
+	completeTodo(index){
+		const newTodos = [...this.state.todos];
+		newTodos[index].isCompleted = true;
+		this.setState({ todos: newTodos });
+	};
+
+	removeTodo(index){
+		const newTodos = [...this.state.todos];
+		newTodos.splice(index, 1);
+		this.setState({ todos: newTodos });
+	};
 
 	render(){
 
