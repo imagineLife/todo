@@ -69,8 +69,26 @@ App.js
 			this.setState({ todos: newTodos });
 		};
 
+- convert all state references in new functional methods
+	ex 
+	from 
+	const addTodo = todoText => {
+		const newTodos = [...this.state.todos, { todoText }];
+		this.setState({ todos: newTodos });
+	};
+	to
+	const addTodo = todoText => {
+		const newTodos = [...todos, { todoText }];
+		setTodos(newTodos);
+	}
 
+	repeat for the remaining functional methods (addTodo, completeTodo)
 
+- remove class render method
+- also remove destructured state vals from previous render method
+	was 
+		//destructure to-dos from state
+		const { todos } = this.state;
 
 
 
