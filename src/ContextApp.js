@@ -4,34 +4,8 @@
 
 import React from "react";
 import ReactDOM from "react-dom";
-import SingleToDo from './components/SingleToDo'
-import AddToDoForm from './components/AddToDoForm'
+import ToDoList from './components/ToDoList'
 import './main.css'
-
-let ToDoList = (props) => {
-
-	let todoList = props.todos.map((t,ind) => {
-			return(
-				<SingleToDo
-					todo={t}
-					key={ind}
-					index={ind}
-					txt={t.text}
-					completeToDo={props.completeTodo}
-					removeToDo={props.removeTodo}
-				/>
-			)
-		})
-
-	return(
-		<div className="todoWrapper">
-			<div className="todo-list">
-				{todoList}
-				<AddToDoForm  addTodo={props.addTodo}/>
-			</div>	
-		</div>
-	)
-}
 
 class ContextApp extends React.Component {
 
