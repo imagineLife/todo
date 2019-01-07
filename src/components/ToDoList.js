@@ -1,5 +1,5 @@
 import React from 'react';
-import SingleToDo from './SingleToDo'
+import SingleToDoContext from './SingleToDoContext'
 import AddToDoForm from './AddToDoForm'
 import { ToDoConsumer } from '../ToDoContext';
 
@@ -12,7 +12,7 @@ let ToDoList = (props) => {
 					{({todos}) =>
 						todos ?
 						todos.map((todo, ind) => {
-							return<SingleToDo
+							return<SingleToDoContext
 								todo={todo}
 								key={ind}
 								index={ind}
