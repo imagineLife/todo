@@ -10,6 +10,8 @@ import style from "./main.css";
 // ReactDOM.render(<ReduxApp />, document.getElementById("app"));
 
 
+
+//IF Context, use THESE...
 export default function Root(){
 	return(
 		<ToDoConsumer>
@@ -20,7 +22,6 @@ export default function Root(){
 	)
 }
 
-//IF Context, use THIS...
 ReactDOM.render(
 	<ToDoProvider>
 		<Root />
