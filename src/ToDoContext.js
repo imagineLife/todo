@@ -10,16 +10,12 @@ class ToDoProvider extends React.Component{
 	};
 
 	componentDidMount(){
-		console.log('ToDoContext CDM!');
 		this.setState({todos: DUMMY_TODOS})		
 	}
 
 	render(){
 		return(
-			<Provider
-				value={{
-		          todos: this.state.todos
-		        }}>
+			<Provider value={{ todos: this.state.todos }}>
 				{this.props.children}
 			</Provider>
 
