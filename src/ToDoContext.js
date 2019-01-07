@@ -1,4 +1,5 @@
 import React from 'react'
+import {DUMMY_TODOS} from './dummyAPI'
 
 //contains UserContext.Consumer && UserContext.Provider
 const { Provider, Consumer } = React.createContext()
@@ -7,6 +8,11 @@ class ToDoProvider extends React.Component{
 	state = {
 		todos: null
 	};
+
+	componentDidMount(){
+		console.log('ToDoContext CDM!');
+		this.setState({todos: DUMMY_TODOS})		
+	}
 
 	render(){
 		return(
