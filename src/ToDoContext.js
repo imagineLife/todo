@@ -8,10 +8,6 @@ class ToDoProvider extends React.Component{
 		todos: null
 	};
 
-	componentDidMount(){
-		
-	}
-
 	render(){
 		return(
 			<Provider
