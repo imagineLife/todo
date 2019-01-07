@@ -1,21 +1,25 @@
 import React from 'react';
 import SingleToDo from './SingleToDo'
 import AddToDoForm from './AddToDoForm'
+import { ToDoConsumer } from '../ToDoContext';
 
 let ToDoList = (props) => {
 
-	let todoList = props.todos.map((t,ind) => {
-			return(
-				<SingleToDo
-					todo={t}
+	let todoList = <ToDoConsumer>
+		{({todos}) =>
+			todos ?
+			todos.map((todo, ind) => {
+				return<SingleToDo
+					todo={todo}
 					key={ind}
 					index={ind}
-					txt={t.text}
+					txt={todo.txt}
 					completeToDo={props.completeTodo}
 					removeToDo={props.removeTodo}
-				/>
-			)
-		})
+				/>;
+			}) : <div></div>
+		}
+	</ToDoConsumer>
 
 	return(
 		<div className="todoWrapper">
