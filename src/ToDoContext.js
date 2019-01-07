@@ -15,6 +15,12 @@ class ToDoProvider extends React.Component{
 		this.setState({ todos: newTodos });
 	};
 
+	removeTodo = (index) => {
+		const newTodos = [...this.state.todos];
+		newTodos.splice(index, 1);
+		this.setState({ todos: newTodos });
+	};
+
 	componentDidMount(){
 		this.setState({todos: DUMMY_TODOS})		
 	}
@@ -23,7 +29,8 @@ class ToDoProvider extends React.Component{
 		return(
 			<Provider value={{ 
 				todos: this.state.todos,
-				completeTodo: this.completeTodo
+				completeTodo: this.completeTodo,
+				removeTodo: this.removeTodo
 			}}>
 				{this.props.children}
 			</Provider>

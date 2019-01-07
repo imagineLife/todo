@@ -3,7 +3,7 @@ import './index.css';
 import { ToDoConsumer } from '../../ToDoContext';
 
 export default function SingleToDo(props) {
-	let { todo, index, removeToDo, txt } = props;
+	let { todo, index, txt } = props;
 	return(
 		<div
 			className="todo"
@@ -11,10 +11,10 @@ export default function SingleToDo(props) {
 			{txt}
 
 			<ToDoConsumer>
-				{({completeTodo}) => 
+				{({completeTodo, removeTodo}) => 
 					<React.Fragment>
 						<button onClick={() => completeTodo(index)}>Complete</button>
-						<button onClick={() => removeToDo(index)}>x</button>
+						<button onClick={() => removeTodo(index)}>x</button>
 					</React.Fragment>	
 				}
 			</ToDoConsumer>	
