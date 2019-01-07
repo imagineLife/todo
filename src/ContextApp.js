@@ -12,33 +12,10 @@ class ContextApp extends React.Component {
 	constructor(props){
 		super(props)
 
-		this.state = {
-		    todos: [
-		      {
-		        text: "Learn about React",
-		        isCompleted: false
-		      },
-		      {
-		        text: "Meet friend for lunch",
-		        isCompleted: false
-		      },
-		      {
-		        text: "Build really cool todo app",
-		        isCompleted: false
-		      }
-		    ]
-		};
-
 		this.completeTodo = this.completeTodo.bind(this)
 		this.removeTodo = this.removeTodo.bind(this)
 		this.addTodo = this.addTodo.bind(this)
 	}
-
-	completeTodo(index){
-		const newTodos = [...this.state.todos];
-		newTodos[index].isCompleted = true;
-		this.setState({ todos: newTodos });
-	};
 
 	removeTodo(index){
 		const newTodos = [...this.state.todos];
@@ -51,17 +28,10 @@ class ContextApp extends React.Component {
 		this.setState({ todos: newTodos });
 	};
 
-	render(){
-
-		//destructure to-dos from state
-		const { todos } = this.state;
-			
-		
+	render(){			
 
 		return (
-			<ToDoList 
-				todos={todos} 
-				completeTodo={this.completeTodo} 
+			<ToDoList
 				removeTodo={this.removeTodo}
 				addTodo={this.addTodo}/>
 		);	
