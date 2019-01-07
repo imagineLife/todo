@@ -8,6 +8,31 @@ import SingleToDo from './components/SingleToDo'
 import AddToDoForm from './components/AddToDoForm'
 import './main.css'
 
+let ToDoList = (props) => {
+
+	let todoList = props.todos.map((t,ind) => {
+			return(
+				<SingleToDo
+					todo={t}
+					key={ind}
+					index={ind}
+					txt={t.text}
+					completeToDo={props.completeTodo}
+					removeToDo={props.removeTodo}
+				/>
+			)
+		})
+
+	return(
+		<div className="todoWrapper">
+			<div className="todo-list">
+				{todoList}
+				<AddToDoForm  addTodo={props.addTodo}/>
+			</div>	
+		</div>
+	)
+}
+
 class ContextApp extends React.Component {
 
 	constructor(props){
@@ -57,26 +82,14 @@ class ContextApp extends React.Component {
 		//destructure to-dos from state
 		const { todos } = this.state;
 			
-		let todoList = todos.map((t,ind) => {
-			return(
-				<SingleToDo
-					todo={t}
-					key={ind}
-					index={ind}
-					txt={t.text}
-					completeToDo={this.completeTodo}
-					removeToDo={this.removeTodo}
-				/>
-			)
-		})
+		
 
 		return (
-			<div className="todoWrapper">
-				<div className="todo-list">
-					{todoList}
-					<AddToDoForm  addTodo={this.addTodo}/>
-				</div>	
-			</div>
+			<ToDoList 
+				todos={todos} 
+				completeTodo={this.completeTodo} 
+				removeTodo={this.removeTodo}
+				addTodo={this.addTodo}/>
 		);	
 	}
 };
