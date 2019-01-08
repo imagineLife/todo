@@ -1,75 +1,93 @@
-/*
-	including notes on converting from class to function+hooks
-*/
-
-//0 using 'next' release of react for hooks
-//1. import useState from react
 import React, { useState } from "react";
-import ReactDOM from "react-dom";
-import SingleToDo from './components/SingleToDo'
-import AddToDoFormHooks from './components/AddToDoFormHooks'
-import './main.css'
+import "./main.css";
 
-//convert from class to fn
-function HooksApp(){
+function Todo({ todo, index, completeTodo, removeTodo }) {
+  return (
+    <div
+      className="todo"
+      style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}
+    >
+      {todo.text}
 
+      <div>
+        <button onClick={() => completeTodo(index)}>Complete</button>
+        <button onClick={() => removeTodo(index)}>x</button>
+      </div>
+    </div>
+  );
+}
 
-/*
-	replace a constructor and state with useState
-*/
-	const [todos, setTodos] = useState([
-      {
-        text: "Learn about React",
-        isCompleted: false
-      },
-      {
-        text: "Meet friend for lunch",
-        isCompleted: false
-      },
-      {
-        text: "Build really cool todo app",
-        isCompleted: false
-      }
-    ])
+function TodoForm({ addTodo }) {
+  const [value, setValue] = useState("");
 
-	const completeTodo = todoIndex => {
-		const newTodos = [...todos];
-		newTodos[todoIndex].isCompleted = true;
-		setTodos(newTodos);
-	};
+  const handleSubmit = e => {
+    e.preventDefault();
+    if (!value) return;
+    addTodo(value);
+    setValue("");
+  };
 
-	const removeTodo = todoIndex => {
-		const newTodos = [...todos];
-		newTodos.splice(todoIndex, 1);
-		setTodos(newTodos);
-	};
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        className="input"
+        value={value}
+        onChange={e => setValue(e.target.value)}
+      />
+    </form>
+  );
+}
 
-	const addTodo = todoText => {
-		const newTodos = [...todos, { todoText }];
-		setTodos(newTodos);
-	};
-		
-	let todoList = todos.map((t,ind) => {
-		return(
-			<SingleToDo
-				todo={t}
-				key={ind}
-				index={ind}
-				txt={t.text}
-				completeToDo={this.completeTodo}
-				removeToDo={this.removeTodo}
-			/>
-		)
-	})
+function HooksApp() {
+  const [todos, setTodos] = useState([
+    {
+      text: "Learn about React",
+      isCompleted: false
+    },
+    {
+      text: "Meet friend for lunch",
+      isCompleted: false
+    },
+    {
+      text: "Build really cool todo app",
+      isCompleted: false
+    }
+  ]);
 
-	return (
-		<div className="todoWrapper">
-			<div className="todo-list">
-				{todoList}
-				<AddToDoForm  addTodo={this.addTodo}/>
-			</div>	
-		</div>
-	);	
-};
+  const addTodo = text => {
+    const newTodos = [...todos, { text }];
+    setTodos(newTodos);
+  };
+
+  const completeTodo = index => {
+    const newTodos = [...todos];
+    newTodos[index].isCompleted = true;
+    setTodos(newTodos);
+  };
+
+  const removeTodo = index => {
+    const newTodos = [...todos];
+    newTodos.splice(index, 1);
+    setTodos(newTodos);
+  };
+
+  return (
+    <div className="app">
+      <div className="todo-list">
+        {todos.map((todo, index) => (
+          <Todo
+            key={index}
+            index={index}
+            todo={todo}
+            completeTodo={completeTodo}
+            removeTodo={removeTodo}
+          />
+        ))}
+        <TodoForm addTodo={addTodo} />
+      </div>
+    </div>
+  );
+}
 
 export default HooksApp;
