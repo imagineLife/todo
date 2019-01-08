@@ -13,3 +13,5 @@ const SingleToDo = (props) => {
 		</div>
 	);
 }
+
+export default SingleToDo;
