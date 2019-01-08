@@ -1,32 +1,25 @@
 import React, { useState } from 'react';
 import './index.css';
 
-export default function AddToDoFormHooks(props){
+export default function AddToDoFormHooks({ addTodo }){
 
-	//"" is a default value in the useState init
-	const [ val, setVal ] = useState("");
+  const [value, setValue] = useState("");
 
-	//destructure from props
-	const { addTodo } = props;
+  const handleSubmit = e => {
+    e.preventDefault();
+    if (!value) return;
+    addTodo(value);
+    setValue("");
+  };
 
-	const updateValue = e => {
-		this.setState({ value: e.target.value });
-	}
-
-	const handleSubmit = e => {
-		e.preventDefault();
-		if (!value) return;
-		addTodo(this.state.value);
-		setVal("");
-	};
-
-	return (
-		<form onSubmit={handleSubmit}>
-			<input
-				type="text"
-				className="input"
-				value={value}
-				onChange={updateValue}/>
-		</form>
-	);
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        className="input"
+        value={value}
+        onChange={e => setValue(e.target.value)}
+      />
+    </form>
+  );
 }

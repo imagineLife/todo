@@ -1,43 +1,7 @@
 import React, { useState } from "react";
 import "./main.css";
-
-function Todo({ todo, index, completeTodo, removeTodo }) {
-  return (
-    <div
-      className="todo"
-      style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}
-    >
-      {todo.text}
-
-      <div>
-        <button onClick={() => completeTodo(index)}>Complete</button>
-        <button onClick={() => removeTodo(index)}>x</button>
-      </div>
-    </div>
-  );
-}
-
-function TodoForm({ addTodo }) {
-  const [value, setValue] = useState("");
-
-  const handleSubmit = e => {
-    e.preventDefault();
-    if (!value) return;
-    addTodo(value);
-    setValue("");
-  };
-
-  return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        className="input"
-        value={value}
-        onChange={e => setValue(e.target.value)}
-      />
-    </form>
-  );
-}
+import AddToDoFormHooks from './components/AddToDoFormHooks'
+import SingleToDoHooks from './components/SingleToDoHooks'
 
 function HooksApp() {
   const [todos, setTodos] = useState([
@@ -76,7 +40,7 @@ function HooksApp() {
     <div className="app">
       <div className="todo-list">
         {todos.map((todo, index) => (
-          <Todo
+          <SingleToDoHooks
             key={index}
             index={index}
             todo={todo}
@@ -84,7 +48,7 @@ function HooksApp() {
             removeTodo={removeTodo}
           />
         ))}
-        <TodoForm addTodo={addTodo} />
+        <AddToDoFormHooks addTodo={addTodo} />
       </div>
     </div>
   );
