@@ -1,7 +1,7 @@
 import React from 'react';
 import './index.css';
 
-export default function SingleToDo(props) {
+const SingleToDo = (props) => {
 	let { todo, index, completeToDo, removeToDo, txt } = props;
 	return(
 		<div
