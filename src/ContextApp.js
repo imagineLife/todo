@@ -4,12 +4,12 @@
 
 import React from "react";
 import ReactDOM from "react-dom";
-import ToDoList from './components/ToDoList'
+import ToDoListContext from './components/ToDoListContext'
 import './main.css'
 
 const ContextApp = () => {		
 	return (
-		<ToDoList />
+		<ToDoListContext />
 	);	
 };
 
