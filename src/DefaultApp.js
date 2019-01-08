@@ -70,7 +70,7 @@ class DefaultApp extends React.Component {
 			<div className="todoWrapper">
 				<div className="todo-list">
 					{todoList}
-					<AddToDoForm  addTodo={this.addTodo}/>
+					<AddToDoForm addTodo={this.addTodo}/>
 				</div>	
 			</div>
 		);	
