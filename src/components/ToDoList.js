@@ -1,6 +1,6 @@
 import React from 'react';
 import SingleToDoContext from './SingleToDoContext'
-import AddToDoForm from './AddToDoForm'
+import AddToDoFormContext from './AddToDoFormContext'
 import { ToDoConsumer } from '../ToDoContext';
 
 let ToDoList = (props) => {
@@ -23,7 +23,7 @@ let ToDoList = (props) => {
 						}) : <div></div>
 					}
 				</ToDoConsumer>
-				<AddToDoForm  addTodo={props.addTodo}/>
+				<AddToDoFormContext />
 			</div>	
 		</div>
 	)
