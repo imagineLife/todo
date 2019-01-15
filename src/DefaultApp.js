@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import SingleToDo from './components/SingleToDo/ToDo'
-import AddToDoForm from './components/AddToDoForm'
+import AddToDoForm from './components/AddToDoForm/normal'
 import './main.css'
 
 class DefaultApp extends React.Component {
