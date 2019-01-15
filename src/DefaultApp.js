@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import SingleToDo from './components/SingleToDo'
+import SingleToDo from './components/SingleToDo/ToDo'
 import AddToDoForm from './components/AddToDoForm'
 import './main.css'
 

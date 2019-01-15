@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import ReduxTodo from '../../components/SingleToDoRedux'
+import ReduxTodo from '../../components/SingleToDo/Redux'
 
 const TodoList = ({ todos, toggleTodo }) => (
   <ul>

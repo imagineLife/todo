@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./main.css";
 import AddToDoFormHooks from './components/AddToDoFormHooks'
-import SingleToDoHooks from './components/SingleToDoHooks'
+import SingleToDoHooks from './components/SingleToDo/Hooks'
 
 function HooksApp() {
   const [todos, setTodos] = useState([

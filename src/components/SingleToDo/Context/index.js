@@ -1,8 +1,8 @@
 import React from 'react';
 import './index.css';
-import { ToDoConsumer } from '../../ToDoContext';
+import { ToDoConsumer } from '../../../ToDoContext';
 
-export default function SingleToDo(props) {
+export default function SingleToDoContext(props) {
 	let { todo, index, txt } = props;
 	return(
 		<div
